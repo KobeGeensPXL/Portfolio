@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --page-transition-duration: 350ms;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-100;
+  @apply min-h-screen;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-medium leading-tight;
+}
+
+h1 {
+  @apply text-4xl md:text-5xl xl:text-6xl;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl;
+}
+
+p, li {
+  @apply leading-relaxed text-neutral-800 dark:text-neutral-200;
+}
+
+a {
+  @apply text-primary-500 hover:text-primary-600 transition-colors duration-200;
+}
+
+.section {
+  @apply py-16 md:py-24;
+}
+
+/* Page Transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity var(--page-transition-duration) ease, 
+              transform var(--page-transition-duration) ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Card */
+.card {
+  @apply bg-white dark:bg-neutral-800 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300;
+}
+
+/* Button */
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-colors duration-200;
+}
+
+.btn-primary {
+  @apply bg-primary-500 text-white hover:bg-primary-600;
+}
+
+.btn-secondary {
+  @apply bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-200 dark:hover:bg-neutral-700;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.7s ease-out forwards;
+}
+
+.fade-delay-1 { animation-delay: 0.1s; }
+.fade-delay-2 { animation-delay: 0.2s; }
+.fade-delay-3 { animation-delay: 0.3s; }
+.fade-delay-4 { animation-delay: 0.4s; }
+.fade-delay-5 { animation-delay: 0.5s; }
+
+/* Prose Overrides for Dark Mode */
+.prose {
+  @apply max-w-none;
+}
+
+.dark .prose {
+  /* Removed prose-invert */
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  @apply text-neutral-900 dark:text-white;
+}
+
+.prose p, .prose li {
+  @apply text-neutral-700 dark:text-neutral-300;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-primary-500 bg-neutral-50 dark:bg-neutral-800 px-4 py-2 my-6;
+}
+
+.prose blockquote p {
+  @apply text-neutral-700 dark:text-neutral-300 italic;
+}
+
+.prose a {
+  @apply text-primary-500 no-underline hover:text-primary-600 dark:text-primary-400 dark:hover:text-primary-300;
+}
+
+/* Line clamp */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+/* Lead paragraph */
+.lead {
+  @apply text-xl text-neutral-700 dark:text-neutral-300 mb-6;
+}
+
+p {
+  margin-bottom: 1rem;
+}
